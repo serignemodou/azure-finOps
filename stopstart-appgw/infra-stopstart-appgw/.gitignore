@@ -1,2 +1,6 @@
 /bin/
 /node_modules/
+.pulumi
+.pnp.*
+.yarn/*
+/.vscode

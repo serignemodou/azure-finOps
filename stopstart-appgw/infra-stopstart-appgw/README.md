@@ -8,7 +8,7 @@ Dans le cadre d'une démarche FinOPS, cette Azure function permet de gérer l'ar
 - Le projet app-stopstart-appgw contient le code de l'application StopStartAppGw
 
 ## Utilisation
-La solution s'appuie sur une fonction StopStartAppGw (script run.ps1 link) qui s'éxecute toutes les heures (Link) et nous permet d'arreter ou de relancer les Application gateway en fonction de leurs tags.
+La solution s'appuie sur une fonction StopStartAppGw (script [run.ps1](https://github.com/serignemodou/azure-finOps/blob/main/stopstart-appgw/app-stopstart-appgw/StopStartAppGw/run.ps1) link) qui s'éxecute [toutes les heures](https://github.com/serignemodou/azure-finOps/blob/main/stopstart-appgw/app-stopstart-appgw/StopStartAppGw/function.json#L7) et nous permet d'arreter ou de relancer les Application gateway en fonction de leurs tags.
 
 Afin qu'une Application Gateway puisse être prise en charge par la fonction StopStartAppGw, les tags suivants doivent être ajoutés:
 

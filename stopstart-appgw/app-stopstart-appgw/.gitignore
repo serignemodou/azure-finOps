@@ -1,6 +1,9 @@
 /bin/
 /node_modules/
-
+.pulumi
+.pnp.*
+.yarn/*
+/.vscode
 deploy.zip
 
 # Azure Functions artifacts
