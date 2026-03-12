@@ -1,0 +1,11 @@
+conf:
+  az:servicePrincipalName: sp-name
+  azure-native:location: FranceCentral
+  azure-native:subscriptionId: subscription-id
+  azure-native:tenantId: tenant-id
+
+  network:config:
+    vnetAddress: ['172.24.144.0/24'] # [172.24.144.0 - 172.24.144.255]
+    snetWebAppInbount: '172.24.144.0/28' # [172.24.144.0 - 172.24.144.15] ; IPs = 15 (10 pour AppGW, 5 pour Azure)
+    snetWebAppOutbound: '172.24.144.16/27' # [172.24.144.16 - 172.24.144.31] ; IPs = 31 (10 pour WebApp Inbound, 5 pour Azure)
+    snetStorage: '172.24.144.32/28' # [172.24.144.80 - 172.24.144.95] ; IPs = 15 (10 pour KV, Blob, 5 pour Azure)

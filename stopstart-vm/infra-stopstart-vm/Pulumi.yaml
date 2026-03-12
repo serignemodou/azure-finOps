@@ -1,0 +1,8 @@
+name: cost-optimization
+runtime: nodejs
+description: A minimal TypeScript Pulumi program
+
+config:
+  project:url:
+      value: "github.com"
+

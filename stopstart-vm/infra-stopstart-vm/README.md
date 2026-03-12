@@ -1,0 +1,1 @@
+### Stop azure vm with specific tags on specific resource-group
