@@ -17,17 +17,17 @@ export const uaiFunctionApp = new identity.UserAssignedIdentity(uaiFunctionAppNa
     resourceName: uaiFunctionAppName
 })
 
-export const functionName = `func-app-${env}`
+export const functionName = `func-vm-${env}`
 
 export const siteConfig : input.web.SiteConfigArgs = {
     vnetRouteAllEnabled: true,
-    linuxFxVersion: "PYTHON|3.11",
+    linuxFxVersion: "PowerShell|7.2",
     publicNetworkAccess: 'Disabled',
     appSettings: [
         /** Begin runtime configuration */
         {
             name: 'FUNCTIONS_WORKER_RUNTIME',
-            value: 'Python'
+            value: 'powershell'
         },
         {
             name: 'FUNCTION_EXTENSION_VERSION',
@@ -35,7 +35,7 @@ export const siteConfig : input.web.SiteConfigArgs = {
         },
         {
             name: 'FUNCTIONS_WORKER_PROCESS_COUNT',
-            value: '2'
+            value: '4'
         },
         {
             name: 'WEBSITE_RUN_FROM_PACKAGE',
@@ -47,14 +47,9 @@ export const siteConfig : input.web.SiteConfigArgs = {
             value: storageAccount.name
         },
         {
-            name: 'AzureWebJobsStorage__credential',
-            value: 'managedidentity',
+            name: 'APPINSIGTHS_INSTRUMENTATIONKEY',
+            value: appInsight.instrumentationKey
         },
-        {
-            name: 'AzureWebJobsStorage__clientid',
-            value: uaiFunctionApp.clientId
-        },
-        /** App insights monitoring configuration */
         {
             name: 'APPLICATIONINSIGHTS_CONNECTION_STRING',
             value: appInsight.connectionString,
@@ -63,6 +58,15 @@ export const siteConfig : input.web.SiteConfigArgs = {
             name: 'ApplicationInsightsAgent_EXTENSION_VERSION',
             value: '~3'
         },
+        /** App insights monitoring configuration */
+        {
+            name: 'AZURE_CLIENT_ID',
+            value: uaiFunctionApp.clientId
+        },
+        {
+            name: 'PSWorkerInProcConcurrencyUpperBound',
+            value: '4'
+        }
     ],
     //https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings
     minTlsVersion: web.SupportedTlsVersions.SupportedTlsVersions_1_2

@@ -4,7 +4,7 @@ import * as network from "@pulumi/azure-native/network";
 import {env, resourceGroup, projectName, tags} from "./common"
 import {snetStorage} from "./network"
 
-const storageAccountName = `safunctionappgw${env}`
+const storageAccountName = `safuncappgw${env}`
 
 export const storageAccount = new storage.StorageAccount(storageAccountName, {
     accountName: storageAccountName,

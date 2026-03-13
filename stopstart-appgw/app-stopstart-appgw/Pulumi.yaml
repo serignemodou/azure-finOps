@@ -1,3 +1,0 @@
-name: app-stopstart-appgw
-runtime: nodejs
-description: A minimal TypeScript Pulumi program
